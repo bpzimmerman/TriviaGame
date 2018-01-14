@@ -58,5 +58,17 @@ var questions = {
         choices: ["United States", "China", "Canada", "Russia"],
         answer: "United States",
         trivia: "Tornados have been observed and documented on every continent except Antarctica; however, the vast majority of tornados occur in the Tornado Alley region of the United States. The United States averages around 1200 tornados per year; Canada has the second most at around 100 per year."
+    },
+    q11:{
+        question: "What wonder drug was used for three years by the Army and Navy before becoming available to the general public in 1944?",
+        choices: ["Penicillin", "Quinine", "Streptomycin", "Sulfanilamide"],
+        answer: "Penicillin",
+        trivia: "The Scottish bacteriologist Sir Alexander Fleming, (1881-1955), discovered penicillin in 1928, but could not make enough penicillin to be useful in practice and his discovery was dismissed as no more than a laboratory curiosity. Ten years later, a team of scientists at Oxford University rediscovered Fleming's work, but unable to engage British companies due to the country's involvement in World War II, the Oxford scientists sought help in America.  Pfizer began producing penicillin in 1941, but it wasn't until the fall of 1942 that scientists were finally able to produce a stable form of the substance in sufficient quantities to make it commercially viable."
+    },
+    q12:{
+        question: "Which sea is the saltiest natural lake and is also at the lowest elevation on the face of the earth?",
+        choices: ["The Dead Sea", "The Great Salt Lake", "Lake Tuz", "The Caspian Sea"],
+        answer: "The Dead Sea",
+        trivia: "The Dead Sea is a salt lake bordered by Jordan to the east and Israel and Palestine to the west. Its surface and shores are 430.5 metres (1,412 ft) below sea level, Earth's lowest elevation on land. The Dead Sea is 304 m (997 ft) deep, the deepest hypersaline lake in the world. With a salinity of 342 g/kg, or 34.2%, (in 2011), it is 9.6 times as salty as the ocean and one of the world's saltiest bodies of water. This salinity makes for a harsh environment in which plants and animals cannot flourish, hence its name."
     }
 };

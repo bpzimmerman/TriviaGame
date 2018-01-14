@@ -26,3 +26,13 @@ body{
     background-color: #53ABDB;
     margin-top: 15%;
 }
+
+.ans{
+    background-color: #CEEDFD;
+    margin-bottom: 5px;
+}
+
+.ans:hover, :focus{
+    background-color: #53ABDB;
+    border: 2px solid #FFB051;
+}

@@ -10,6 +10,12 @@ $(document).ready(function(){
         answerTime: 5,
         //setInterval handle variable
         showQuestion: undefined,
+        //variable to hold the user's answer
+        userAnswer: undefined,
+        //variable to hold the number of correct answers
+        correct: 0,
+        //variable to hold the number of incorrect answers
+        incorrect: 0,
         //array to hold the data object properties
         keyArray: [],
         //method to populate the keyArray with the data object properties
@@ -35,6 +41,8 @@ $(document).ready(function(){
             //reset the html and variables
             $(".row").empty();
             this.count = 0;
+            this.correct = 0;
+            this.incorrect = 0;
             //populate and randomize the keyArray with the properties from questions
             this.getKeys(questions);
             this.shuffle(this.keyArray);
@@ -51,9 +59,10 @@ $(document).ready(function(){
             var q = questions[this.keyArray[this.count]].question;
             var c = questions[this.keyArray[this.count]].choices;
             var remTime = this.questionTime;
-            //randomize the choices and clear the html
+            //randomize the choices, clear the html, reset the userAnswer variable
             this.shuffle(c);
             $(".row").empty();
+            this.userAnswer = undefined;
             //populate the html with current question of total questions
             document.getElementById("questionNum").innerHTML = "<p>Question " + (this.count + 1) + " of " + this.totalQuestions;
             //display the time left to answer the current question
@@ -70,20 +79,39 @@ $(document).ready(function(){
             //display the current question and the choices
             document.getElementById("question").innerHTML = "<p>" + q + "</p>";
             for (var i = 0; i < c.length; i += 1){
-                var para = document.createElement("p");
+                var bttn = document.createElement("button");
+                bttn.className = "ans btn";
+                bttn.setAttribute("data", c[i]);
                 var t = document.createTextNode(c[i]);
-                para.appendChild(t);
-                document.getElementById("choices").appendChild(para);
+                bttn.appendChild(t);
+                document.getElementById("choices").appendChild(bttn);
             };
+            //logs the value of the user's answer (was not able to figure out how to do this with vanilla javascript)
+            $(".ans").on("focus", function(){
+                game.userAnswer = $(this).attr("data");
+            })
         },
         //method to display the answer page
         displayAnswer: function(){
             //set function specific variables and clear the html
             var a = questions[this.keyArray[this.count]].answer;
             var t = questions[this.keyArray[this.count]].trivia;
+            var result;
             $(".row").empty();
+            //evaluates the user's response and increments the appropriate variable
+            if (this.userAnswer === a){
+                result = "Correct!";
+                this.correct += 1;
+            }
+            else if (this.userAnswer === undefined){
+                result = "Unanswered!";
+            }
+            else {
+                result = "Incorrect!";
+                this.incorrect += 1;
+            };
             //populate the html with the answer result, correct answer, and trivia tidbit
-            document.getElementById("timer").innerHTML = "<p>Correct!</p>";
+            document.getElementById("timer").innerHTML = "<p>" + result + "</p>";
             document.getElementById("question").innerHTML = "<p>" + a + "</p>";
             document.getElementById("choices").innerHTML = "<p>" + t + "</p>";
             //displays the final game statistics if this is the last question
@@ -104,10 +132,10 @@ $(document).ready(function(){
         //method to display the final game statistics and add a button to start the game over
         gameStats: function(){
             $(".row").empty();
-            document.getElementById("timer").innerHTML = "<p>Number Correct: " + 2 + "</p>";
-            document.getElementById("question").innerHTML = "<p>Number Incorrect: " + 1 + "</p>";
-            document.getElementById("choices").innerHTML = "<p>Number Unanswered: " + 1 + "</p>";
-            document.getElementById("button").innerHTML = "<button id = 'start' class = 'btn'>Start Over?</button>";
+            document.getElementById("timer").innerHTML = "<p>Number Correct: " + this.correct + "</p>";
+            document.getElementById("question").innerHTML = "<p>Number Incorrect: " + this.incorrect + "</p>";
+            document.getElementById("choices").innerHTML = "<p>Number Unanswered: " + (this.totalQuestions - (this.correct + this.incorrect)) + "</p>";
+            document.getElementById("begin").innerHTML = "<button id = 'start' class = 'btn'>Start Over?</button>";
             document.getElementById("start").onclick = function(){
                 game.begin();
             };
@@ -115,7 +143,7 @@ $(document).ready(function(){
     };
 
     //initial on-load page (button to start the game)
-    document.getElementById("button").innerHTML = "<button id = 'start' class = 'btn'>Start</button>";
+    document.getElementById("begin").innerHTML = "<button id = 'start' class = 'btn'>Start</button>";
 
     document.getElementById("start").onclick = function(){
         game.begin();
