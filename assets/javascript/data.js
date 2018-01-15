@@ -70,5 +70,23 @@ var questions = {
         choices: ["The Dead Sea", "The Great Salt Lake", "Lake Tuz", "The Caspian Sea"],
         answer: "The Dead Sea",
         trivia: "The Dead Sea is a salt lake bordered by Jordan to the east and Israel and Palestine to the west. Its surface and shores are 430.5 metres (1,412 ft) below sea level, Earth's lowest elevation on land. The Dead Sea is 304 m (997 ft) deep, the deepest hypersaline lake in the world. With a salinity of 342 g/kg, or 34.2%, (in 2011), it is 9.6 times as salty as the ocean and one of the world's saltiest bodies of water. This salinity makes for a harsh environment in which plants and animals cannot flourish, hence its name."
+    },
+    q13:{
+        question: "Bees must collect nectar from approximately how many flowers to make 1 pound of honeycomb?",
+        choices: ["10 thousand", "2 million", "20 million", "50 million"],
+        answer: "20 million",
+        trivia: "Nectar is usually secreted from glands called floral nectaries that are found in various places in a flower depending on the species. They are usually found at the base, but may also be on the sepals, petals, or stamens. Bees have tube-like mouthparts that can reach deep into a flower like a straw. The nectar is swallowed into an organ known as the honey stomach (a part of the esophagus that expands as it fills). Once the honey stomach is full the bee returns to the hive where the payload is transferred to a waiting worker in a process called trophallaxis and the long process of converting nectar into honey begins."
+    },
+    q14:{
+        question: "Albacore is a type of:",
+        choices: ["Shell-Fish", "Tuna", "Marble", "Meteoroid"],
+        answer: "Tuna",
+        trivia: "Albacore (Thunnus alalunga) is one of the eight tuna species belonging to the Thunnus genus. It is the only tuna species that can be marketed as white meat in the United States. The albacore is a very economically important fish and is a target of commercial and recreational fisheries. It was originally the basis for the United States tuna-canning industry and is no less important today, making up significant percentages of the gross domestic products of various Pacific nations. It is listed as Near Threatened by the International Union for the Conservation of Nature (IUCN) because of the threat of overfishing. Several stocks are in significant decline and the species' overall population trend is decreasing."
+    },
+    q15:{
+        question: "What is the only species of cat that lives and hunts in groups?",
+        choices: ["Lion", "Leopard", "Jaguar", "Cougar"],
+        answer: "Lion",
+        trivia: "Lions live together in prides and hunt in groups, mainly at night, stalking and encircling prey until one of the hunters is close enough to pounce. Stealthy hunting groups, mostly made up of lionesses, spread out to cover large distances and quietly move closer to the targeted prey. Lions often hunt at night to reduce their visibility and wait until they are 10 to 30 yards from their prey before charging forward. In some cases, lions use their massive paws and sharp claws to strike prey and achieve a firm grip. In other kills, they take animals by surprise with a quick bite on a vulnerable area of the body."
     }
 };

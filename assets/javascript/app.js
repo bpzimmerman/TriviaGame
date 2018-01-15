@@ -1,13 +1,13 @@
 $(document).ready(function(){
     var game = {
-        //array position of the question being asked
-        count: 0,
         //total number of questions to be asked
         totalQuestions: 3,
         //time allotted to answer a question
         questionTime: 10,
         //time allotted for the answer page to be displayed
         answerTime: 5,
+        //array position of the question being asked
+        count: 0,
         //setInterval handle variable
         showQuestion: undefined,
         //variable to hold the user's answer
@@ -48,10 +48,6 @@ $(document).ready(function(){
             this.shuffle(this.keyArray);
             //display the first question
             this.displayQuestion();
-            //set the interval between each subsequent question
-            this.showQuestion = setInterval(function(){
-                game.nextQuestion()
-            }, 1000 * (this.questionTime + this.answerTime));
         },
         //method to display each question
         displayQuestion: function(){
@@ -64,13 +60,13 @@ $(document).ready(function(){
             $(".row").empty();
             this.userAnswer = undefined;
             //populate the html with current question of total questions
-            document.getElementById("questionNum").innerHTML = "<p>Question " + (this.count + 1) + " of " + this.totalQuestions;
+            document.getElementById("questionNum").innerHTML = "<p class = 'quest'>Question " + (this.count + 1) + " of " + this.totalQuestions;
             //display the time left to answer the current question
-            document.getElementById("timer").innerHTML = "<p>Remaining Time: " + remTime + " seconds</p>";
+            document.getElementById("timer").innerHTML = "<p class = 'quest'>Remaining Time: " + remTime + " seconds</p>";
             //timer to count down the remaining time and when it hits 0 stop the timer and display the answer page
             var timeId = setInterval(function(){
                 remTime -= 1;
-                document.getElementById("timer").innerHTML = "<p>Remaining Time: " + remTime + " seconds</p>";
+                document.getElementById("timer").innerHTML = "<p class = 'quest'>Remaining Time: " + remTime + " seconds</p>";
                 if (remTime === 0){
                     clearInterval(timeId);
                     game.displayAnswer();
@@ -111,30 +107,30 @@ $(document).ready(function(){
                 this.incorrect += 1;
             };
             //populate the html with the answer result, correct answer, and trivia tidbit
-            document.getElementById("timer").innerHTML = "<p style='font-size:2.5em'>" + result + "</p>";
+            document.getElementById("timer").innerHTML = "<p class = 'ansRes'>" + result + "</p>";
             document.getElementById("question").innerHTML = "<p>" + a + "</p>";
             document.getElementById("choices").innerHTML = "<p>" + t + "</p>";
-            //displays the final game statistics if this is the last question
-            if ((this.count + 1) === this.totalQuestions){
-                setTimeout(function(){
+            //displays the final game statistics if this is the last question or increments the count and displays the next question if not
+            setTimeout(function(){
+                if((game.count + 1) === game.totalQuestions){
                     game.gameStats();
-                }, 1000 * this.answerTime);
-            };
-        },
-        //method to increment the count, stop the interval if it's the last question, and display the next question
-        nextQuestion: function(){
-            this.count += 1;
-            if ((this.count + 1) === this.totalQuestions){
-                clearInterval(this.showQuestion);
-            };
-            this.displayQuestion();
+                }
+                else{
+                    game.count += 1;
+                    game.displayQuestion();
+                };
+            }, 1000 * this.answerTime);
         },
         //method to display the final game statistics and add a button to start the game over
         gameStats: function(){
             $(".row").empty();
-            document.getElementById("questionNum").innerHTML = "<p style='font-size:1.33em'>Number Correct: " + this.correct + "</p>";
-            document.getElementById("timer").innerHTML = "<p style='font-size:1.33em'>Number Incorrect: " + this.incorrect + "</p>";
-            document.getElementById("question").innerHTML = "<p>Number Unanswered: " + (this.totalQuestions - (this.correct + this.incorrect)) + "</p>";
+            var perCorrect = Math.round(100*this.correct/this.totalQuestions);
+            var perIncorrect = Math.round(100*this.incorrect/this.totalQuestions);
+            var perUnanswered = Math.round(100*(this.totalQuestions - (this.correct + this.incorrect))/this.totalQuestions);
+            document.getElementById("total").innerHTML = "<p class = 'stat'>Number Asked: " + this.totalQuestions + "</p>";
+            document.getElementById("questionNum").innerHTML = "<p class = 'stat'>Number Correct: " + this.correct + " (" + perCorrect + "%)</p>";
+            document.getElementById("timer").innerHTML = "<p class = 'stat'>Number Incorrect: " + this.incorrect + " (" + perIncorrect + "%)</p>";
+            document.getElementById("question").innerHTML = "<p>Number Unanswered: " + (this.totalQuestions - (this.correct + this.incorrect)) + " (" + perUnanswered + "%)</p>";
             document.getElementById("begin").innerHTML = "<button id = 'start' class = 'btn'>Start Over?</button>";
             document.getElementById("start").onclick = function(){
                 game.begin();

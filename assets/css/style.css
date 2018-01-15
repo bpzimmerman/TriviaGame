@@ -40,13 +40,7 @@ h1{
     margin-top: 15%;
 }
 
-#questionNum, #timer, .ans{
-    font-size: 1.5em;
-}
-
-#choices p{
-    text-align: left;
-    padding: 0 5vw 0 5vw;
+.quest{
     font-size: 1.5em;
 }
 
@@ -56,6 +50,7 @@ h1{
 }
 
 .ans{
+    font-size: 1.5em;
     background-color: #CEEDFD;
     margin-bottom: 5px;
 }
@@ -63,4 +58,18 @@ h1{
 .ans:hover, :focus{
     background-color: #53ABDB;
     border: 2px solid #FFB051;
+}
+
+.ansRes{
+    font-size: 3em;
+}
+
+#choices p{
+    text-align: left;
+    padding: 0 5vw 0 5vw;
+    font-size: 1.5em;
+}
+
+.stat{
+    font-size: 2em;
 }
