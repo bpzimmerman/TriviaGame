@@ -45,7 +45,7 @@ var questions = {
         question: "How many men have walked on the moon?",
         choices: ["Eight", "Ten", "Twelve", "Fourteen"],
         answer: "Twelve",
-        trivia: "Neil Armstrong and Buzz Aldrin from Apollo 11 on July 21,1969. Pete Conrad and Alan Bean from Apollo 12 on November 19 to 20, 1969. Alan Shepard and Edgar Mitchell from Apollo 14 on February 5 to 6, 1971. David Scott and James Irwin from Apollo 15 on July 31 to August 2, 1971. John Young and Chalres Duke from Apollo 16 on April 21 to 23, 1972. Eugene Cernan and Harrison Schmitt from Apollo 17 on December 11 to 14, 1972."
+        trivia: "Neil Armstrong and Buzz Aldrin from Apollo 11 on July 21,1969.<br/>Pete Conrad and Alan Bean from Apollo 12 on November 19 to 20, 1969.<br/>Alan Shepard and Edgar Mitchell from Apollo 14 on February 5 to 6, 1971.<br/>David Scott and James Irwin from Apollo 15 on July 31 to August 2, 1971.<br/>John Young and Chalres Duke from Apollo 16 on April 21 to 23, 1972.<br/>Eugene Cernan and Harrison Schmitt from Apollo 17 on December 11 to 14, 1972."
     },
     q9:{
         question: "What is the fastest-running terrestrial animal?",

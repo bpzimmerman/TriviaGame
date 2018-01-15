@@ -111,7 +111,7 @@ $(document).ready(function(){
                 this.incorrect += 1;
             };
             //populate the html with the answer result, correct answer, and trivia tidbit
-            document.getElementById("timer").innerHTML = "<p>" + result + "</p>";
+            document.getElementById("timer").innerHTML = "<p style='font-size:2.5em'>" + result + "</p>";
             document.getElementById("question").innerHTML = "<p>" + a + "</p>";
             document.getElementById("choices").innerHTML = "<p>" + t + "</p>";
             //displays the final game statistics if this is the last question
@@ -132,9 +132,9 @@ $(document).ready(function(){
         //method to display the final game statistics and add a button to start the game over
         gameStats: function(){
             $(".row").empty();
-            document.getElementById("timer").innerHTML = "<p>Number Correct: " + this.correct + "</p>";
-            document.getElementById("question").innerHTML = "<p>Number Incorrect: " + this.incorrect + "</p>";
-            document.getElementById("choices").innerHTML = "<p>Number Unanswered: " + (this.totalQuestions - (this.correct + this.incorrect)) + "</p>";
+            document.getElementById("questionNum").innerHTML = "<p style='font-size:1.33em'>Number Correct: " + this.correct + "</p>";
+            document.getElementById("timer").innerHTML = "<p style='font-size:1.33em'>Number Incorrect: " + this.incorrect + "</p>";
+            document.getElementById("question").innerHTML = "<p>Number Unanswered: " + (this.totalQuestions - (this.correct + this.incorrect)) + "</p>";
             document.getElementById("begin").innerHTML = "<button id = 'start' class = 'btn'>Start Over?</button>";
             document.getElementById("start").onclick = function(){
                 game.begin();

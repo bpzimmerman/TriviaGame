@@ -1,6 +1,12 @@
 /* paletton.com base color 9CD7F7 */
 
+@font-face{
+    font-family: science;
+    src: url(stardate_81316.ttf);
+}
+
 *{
+    font-family: science;
     color: #1A5778;
 }
 
@@ -13,18 +19,40 @@ body{
 .container{
     background-color: #9CD7F7;
     text-align: center;
+    max-width: 60%;
     position: absolute;
-    top: 15px;
+    top: 50px;
     left: 0;
-    bottom: 15px;
+    bottom: 50px;
     right: 0;
 }
 
+h1{
+    font-size: 4em;
+    border-bottom: 2px solid #FFB051;
+    padding-bottom: 20px;
+}
+
 #start{
-    font-size: 2em;
-    width: 200px;
+    font-size: 2.5em;
+    min-width: 200px;
     background-color: #53ABDB;
     margin-top: 15%;
+}
+
+#questionNum, #timer, .ans{
+    font-size: 1.5em;
+}
+
+#choices p{
+    text-align: left;
+    padding: 0 5vw 0 5vw;
+    font-size: 1.5em;
+}
+
+#question p{
+    font-size: 2em;
+    padding: 0 2.5vw 0 2.5vw;
 }
 
 .ans{
