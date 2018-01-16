@@ -2,14 +2,12 @@ $(document).ready(function(){
     var game = {
         //total number of questions to be asked
         totalQuestions: 3,
-        //time allotted to answer a question
+        //time allotted to answer a question (in seconds)
         questionTime: 10,
-        //time allotted for the answer page to be displayed
+        //time allotted for the answer page to be displayed (in seconds)
         answerTime: 5,
         //array position of the question being asked
         count: 0,
-        //setInterval handle variable
-        showQuestion: undefined,
         //variable to hold the user's answer
         userAnswer: undefined,
         //variable to hold the number of correct answers
@@ -18,10 +16,16 @@ $(document).ready(function(){
         incorrect: 0,
         //array to hold the data object properties
         keyArray: [],
-        //method to populate the keyArray with the data object properties
+        //method to populate the keyArray with the data object properties and make sure the total questions to be asked is appropriate
         getKeys: function(object){
             for (var key in object){
                 this.keyArray.push(key);
+            };
+            if (this.totalQuestions < 1){
+                this.totalQuestions = 1;
+            }
+            else if (this.totalQuestions > this.keyArray.length){
+                this.totalQuestions = this.keyArray.length;
             };
         },
         //method to randomize an array
