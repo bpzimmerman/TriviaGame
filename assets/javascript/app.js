@@ -89,7 +89,10 @@ $(document).ready(function(){
             //logs the value of the user's answer (was not able to figure out how to do this with vanilla javascript)
             $(".ans").on("focus", function(){
                 game.userAnswer = $(this).attr("data");
-            })
+            });
+            $(".ans").blur(function(){
+                game.userAnswer = undefined;
+            });
         },
         //method to display the answer page
         displayAnswer: function(){
